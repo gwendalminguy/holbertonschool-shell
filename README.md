@@ -1,1 +1,1 @@
-This is a repository
+This is the shell repository.
