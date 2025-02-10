@@ -1,2 +1,2 @@
 #!/bin/bash
-cat /etc/passwd | sed -E 's/x:[0-9]+:[0-9]+:[a-zA-Z,\-\ ]+//' | sed -E 's/:\/[a-z\/]+//' | sort
+cat /etc/passwd | cut -d: -f1 -f6 | sort
