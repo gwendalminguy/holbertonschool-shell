@@ -1,0 +1,3 @@
+#!/bin/bash
+NUM=4.0
+printf "%O.2f\n" $NUM
