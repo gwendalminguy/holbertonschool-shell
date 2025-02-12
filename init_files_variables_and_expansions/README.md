@@ -14,3 +14,4 @@
 12-combinations: prints all possible combinations of two letters except "oo"\
 13-print_float: prints a number with two decimal places\
 14-decimal_to_hexadecimal: converts a number from base 10 to base 16\
+15-rot13: encodes or decodes text using rot13 encryption
