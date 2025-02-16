@@ -1,2 +1,2 @@
 #!/bin/bash
-nl -ba -s@ | grep -Te "1@" -Te "3@" -Te "5@" -Te "7@" -Te "9@" | cut -d@ -f2-
+nl -ba -s\t | grep -e "1\t" -e "3\t" -e "5\t" -e "7\t" -e "9\t" | cut -d\t -f2
