@@ -5,4 +5,4 @@ pwd | rev | cut -d/ -f1 | rev | tr '_' ' ' | tr [:lower:] [:upper:] >> $name
 echo -n "Description: "
 read string
 echo -e "\n$string" >> $name
-ls -1 | grep -v "README" | sort -h | cat -E | nl -s":%* [" | cut -d: -f2- | tr "$" "]" | tr "%" "\n" >> $name
+ls -1 | grep -Ev "README|TEST" | sort -h | cat -E | nl -s":%* [" | cut -d: -f2- | tr "$" "]" | tr "%" "\n" >> $name
