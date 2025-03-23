@@ -1,5 +1,6 @@
 #!/bin/bash
 name=TEST.md
+username=$(git config user.name)
 repository=$(pwd | rev | cut -d/ -f2 | rev)
 directory=$(pwd | rev | cut -d/ -f1 | rev)
 echo -e $(echo "## ${directory^^}\n" | tr "_" " ") > $name
@@ -7,5 +8,5 @@ echo -n "Description: "
 read string
 echo -e "$string\n" >> $name
 for file in $(ls | grep -Ev "README|TEST" | sort -h) ; do
-	echo -e "* [$file](https://github.com/gwendalminguy/$repository/tree/main/$directory/$file)\n" >> $name
+	echo -e "* [$file](https://github.com/$username/$repository/tree/main/$directory/$file)\n" >> $name
 done
