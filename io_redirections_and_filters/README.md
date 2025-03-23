@@ -4,6 +4,8 @@ This is the I/O Redirection & Filters project.
 
 * [autoreadme](https://github.com/gwendalminguy/holbertonschool-shell/blob/main/io_redirections_and_filters/autoreadme), creates a structured README file.
 
+* [autoreadmebis](https://github.com/gwendalminguy/holbertonschool-shell/blob/main/io_redirections_and_filters/autoreadmebis), creates a structured README file with hyperlinks.
+
 * [autogit](https://github.com/gwendalminguy/holbertonschool-shell/blob/main/io_redirections_and_filters/autogit), adds, commits and pushes a file to GitHub.
 
 * [0-hello_world](https://github.com/gwendalminguy/holbertonschool-shell/blob/main/io_redirections_and_filters/0-hello_world), prints "Hello, World".
