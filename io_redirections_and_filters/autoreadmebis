@@ -1,0 +1,11 @@
+#!/bin/bash
+name=TEST.md
+repository=$(pwd | rev | cut -d/ -f2 | rev)
+directory=$(pwd | rev | cut -d/ -f1 | rev)
+echo -e "## ${directory^^}\n" > $name
+echo -n "Description: "
+read string
+echo -e "$string\n" >> $name
+for file in $(ls | grep -Ev "README|TEST" | sort -h) ; do
+	echo -e "* [$file](https://github.com/gwendalminguy/$repository/tree/main/$directory/$file)\n" >> $name
+done
