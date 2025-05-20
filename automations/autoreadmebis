@@ -7,6 +7,6 @@ echo -e $(echo "## ${directory^^}\n" | tr "_" " ") > $name
 echo -n "Description: "
 read string
 echo -e "$string\n" >> $name
-for file in $(ls | grep -Ev "README|TEST|main.c" | sort -g) ; do
+for file in $(ls | grep -Ev "README|TEST|main." | sort -g) ; do
 	echo -e "* [$file](https://github.com/$username/$repository/tree/main/$directory/$file)\n" >> $name
 done
