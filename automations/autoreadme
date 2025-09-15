@@ -6,7 +6,7 @@ DIRECTORY=$(pwd | rev | cut -d/ -f1 | rev)
 echo -e $(echo "## ${DIRECTORY^^}\n" | tr "_" " ") > $NAME
 echo -n "Description: "
 read STRING
-echo -e "$STRING\n" >> $NAME
+echo -e "$STRING" >> $NAME
 for FILE in $(ls | grep -Ev "README|TEST|venv|main." | sort -g) ; do
-	echo -e "* [$FILE](https://github.com/$USERNAME/$REPOSITORY/tree/main/$DIRECTORY/$FILE)\n" >> $NAME
+	echo -e "\n* [$FILE](https://github.com/$USERNAME/$REPOSITORY/tree/main/$DIRECTORY/$FILE)" >> $NAME
 done
