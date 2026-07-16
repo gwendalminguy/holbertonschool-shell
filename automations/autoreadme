@@ -1,12 +1,14 @@
 #!/bin/bash
+
 NAME=TEST.md
 USERNAME=$(git config user.name)
 REPOSITORY=$(pwd | rev | cut -d/ -f2 | rev)
 DIRECTORY=$(pwd | rev | cut -d/ -f1 | rev)
+
 echo -e $(echo "## ${DIRECTORY^^}\n" | tr "_" " ") > $NAME
-echo -n "Description: "
-read STRING
+read -e -r -p "Description: " STRING
 echo -e "$STRING" >> $NAME
+
 for FILE in $(ls | grep -Ev "README|TEST|venv|main." | sort -g) ; do
 	echo -e "\n* [$FILE](https://github.com/$USERNAME/$REPOSITORY/tree/main/$DIRECTORY/$FILE)" >> $NAME
 done
