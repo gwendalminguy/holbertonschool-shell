@@ -1,6 +1,10 @@
 #!/bin/bash
-git add $@
-echo -n "Commit: "
-read MESSAGE
+
+set -euo pipefail
+
+git add "$@"
+
+read -e -r -p "Commit: " MESSAGE
+
 git commit -m "$MESSAGE"
 git push
