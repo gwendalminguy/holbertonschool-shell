@@ -1,17 +1,28 @@
 #!/bin/bash
 
 NAME=TEST.md
-USERNAME=$(git config user.name)
+REPOSITORY=$(git remote get-url origin | sed 's#.*github.com[:/]##; s#\.git$##')
 
-REPOSITORY=$(pwd | rev | cut -d/ -f2 | rev)
-DIRECTORY=$(pwd | rev | cut -d/ -f1 | rev)
+ROOT=$(git rev-parse --show-toplevel)
+DIRECTORY=$(basename "$PWD")
+RELATIVE_PATH=${PWD#"$ROOT"/}
 
+# Set title and description
 HEADING=$(echo "$DIRECTORY" | tr '_' ' ' | sed 's/-/ - /g' | sed 's/\b\(.\)/\u\1/g')
 
-echo -e $(echo "## ${HEADING}\n" | tr "_" " ") > $NAME
+echo -e "## ${HEADING}\n" > "$NAME"
 read -e -r -p "Description: " STRING
-echo -e "$STRING" >> $NAME
+echo -e "$STRING" >> "$NAME"
 
-for FILE in *; do
-	echo -e "\n* [$FILE](https://github.com/$USERNAME/$REPOSITORY/tree/main/$DIRECTORY/$FILE)" >> $NAME
+# Set the correct base URL
+if [[ "$PWD" == "$ROOT" ]]; then
+	URL="https://github.com/$REPOSITORY/blob/main"
+else
+	URL="https://github.com/$REPOSITORY/blob/main/$RELATIVE_PATH"
+fi
+
+# Write the list of elements
+for ELEMENT in *; do
+	[[ "$ELEMENT" == "$NAME" ]] && continue
+	echo -e "\n* [$ELEMENT]($URL/$ELEMENT)" >> $NAME
 done
